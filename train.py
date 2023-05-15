@@ -57,7 +57,7 @@ def train(epoch):
             epoch=epoch,
             trained_samples=batch_index * args.b + len(images),
             total_samples=len(cifar100_training_loader.dataset)
-        ))
+        ),end='\r')
 
         #update training loss for each iteration
         writer.add_scalar('Train/loss', loss.item(), n_iter)
