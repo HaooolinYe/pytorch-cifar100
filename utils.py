@@ -178,8 +178,9 @@ def get_training_dataloader(mean, std, batch_size=16, num_workers=2, shuffle=Tru
     transform_train = transforms.Compose([
         #transforms.ToPILImage(),
         transforms.RandomCrop(32, padding=4),
-        transforms.RandomHorizontalFlip(),
-        transforms.RandomRotation(15),
+#         transforms.RandomHorizontalFlip(),
+#         transforms.RandomRotation(15),
+        transforms.AutoAugment(transforms.AutoAugmentPolicy.CIFAR10),
         transforms.ToTensor(),
         transforms.Normalize(mean, std)
     ])
